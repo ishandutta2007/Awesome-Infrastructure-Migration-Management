@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#080c14" />
+    </linearGradient>
+
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Filters for Glow & Shadows -->
+    <filter id="cardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Animated Data Stream Pattern -->
+    <style>
+      .node-pulse {
+        animation: pulse 3s ease-in-out infinite alternate;
+      }
+      .node-pulse-delayed {
+        animation: pulse 3s ease-in-out infinite alternate;
+        animation-delay: 1.5s;
+      }
+      .stream-flow {
+        stroke-dasharray: 10, 15;
+        animation: flowDash 20s linear infinite;
+      }
+      .stream-flow-rev {
+        stroke-dasharray: 8, 12;
+        animation: flowDashRev 15s linear infinite;
+      }
+      .badge-float {
+        animation: float 4s ease-in-out infinite alternate;
+      }
+      .badge-float-delayed {
+        animation: float 4s ease-in-out infinite alternate;
+        animation-delay: 2s;
+      }
+      .star-twinkle {
+        animation: twinkle 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes flowDash {
+        from { stroke-dashoffset: 400; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes flowDashRev {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: 400; }
+      }
+      @keyframes pulse {
+        0% { r: 6; opacity: 0.4; }
+        50% { r: 9; opacity: 0.9; }
+        100% { r: 6; opacity: 0.4; }
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-6px); }
+      }
+      @keyframes twinkle {
+        0% { opacity: 0.2; transform: scale(0.8); }
+        100% { opacity: 0.8; transform: scale(1.2); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Subtle Architectural Grid Background -->
+  <g opacity="0.12">
+    <path d="M 0,60 L 1200,60 M 0,120 L 1200,120 M 0,180 L 1200,180 M 0,240 L 1200,240 M 0,300 L 1200,300" stroke="#94a3b8" stroke-width="1" />
+    <path d="M 120,0 L 120,360 M 240,0 L 240,360 M 360,0 L 360,360 M 480,0 L 480,360 M 600,0 L 600,360 M 720,0 L 720,360 M 840,0 L 840,360 M 960,0 L 960,360 M 1080,0 L 1080,360" stroke="#94a3b8" stroke-width="1" />
+  </g>
+
+  <!-- Dynamic Migration Data Waves in Deep Background -->
+  <g opacity="0.35">
+    <path d="M -50,290 C 250,230 450,330 750,270 C 950,230 1100,280 1250,250" fill="none" stroke="url(#flowGrad1)" stroke-width="3" class="stream-flow" />
+    <path d="M -50,320 C 300,350 550,260 850,310 C 1050,340 1150,290 1250,310" fill="none" stroke="#6366f1" stroke-width="2" class="stream-flow-rev" />
+    <path d="M -30,80 C 280,40 500,110 800,60 C 1020,30 1120,70 1230,50" fill="none" stroke="#0ea5e9" stroke-width="1.5" class="stream-flow" />
+  </g>
+
+  <!-- Ambient Glowing Nebulas (Kept soft behind text) -->
+  <circle cx="200" cy="100" r="140" fill="#0284c7" opacity="0.15" filter="url(#cardGlow)" />
+  <circle cx="1020" cy="260" r="150" fill="#7c3aed" opacity="0.14" filter="url(#cardGlow)" />
+
+  <!-- Animated Glowing Network Orbit Nodes (Subtle, In Background) -->
+  <g opacity="0.6">
+    <circle cx="150" cy="80" r="4" fill="#38bdf8" />
+    <circle cx="150" cy="80" r="7" fill="none" stroke="#38bdf8" class="node-pulse" />
+
+    <circle cx="1060" cy="90" r="4" fill="#a855f7" />
+    <circle cx="1060" cy="90" r="8" fill="none" stroke="#a855f7" class="node-pulse-delayed" />
+
+    <circle cx="980" cy="290" r="4" fill="#38bdf8" />
+    <circle cx="980" cy="290" r="7" fill="none" stroke="#38bdf8" class="node-pulse" />
+
+    <circle cx="100" cy="290" r="4" fill="#6366f1" />
+    <circle cx="100" cy="290" r="7" fill="none" stroke="#6366f1" class="node-pulse-delayed" />
+  </g>
+
+  <!-- Migration Visual Pipeline Flow (Left to Right: Physical/DC -> Cloud Target) -->
+  <g transform="translate(0, 0)" opacity="0.85">
+    <!-- Source Tag / Indicator -->
+    <g transform="translate(70, 185)" class="badge-float">
+      <rect width="130" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#softShadow)" />
+      <circle cx="20" cy="21" r="5" fill="#f59e0b" />
+      <text x="35" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">ON-PREM / VM</text>
+    </g>
+
+    <!-- Connector Arc -->
+    <path d="M 200,206 L 310,206" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4, 4" class="stream-flow" />
+
+    <!-- Destination Tag / Indicator -->
+    <g transform="translate(1000, 185)" class="badge-float-delayed">
+      <rect width="130" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#softShadow)" />
+      <circle cx="20" cy="21" r="5" fill="#10b981" />
+      <text x="35" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">HYBRID CLOUD</text>
+    </g>
+    
+    <path d="M 890,206 L 1000,206" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="4, 4" class="stream-flow-rev" />
+  </g>
+
+  <!-- Central Foreground Content: Title, Category, Subtitle & Architecture Pillars -->
+  <!-- Category Pill Above Title -->
+  <g transform="translate(425, 42)">
+    <rect width="350" height="30" rx="15" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.9" />
+    <circle cx="20" cy="15" r="4" fill="#38bdf8" class="node-pulse" />
+    <text x="34" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#7dd3fc" letter-spacing="1.5">ENTERPRISE CLOUD &amp; WORKLOAD MOBILITY</text>
+  </g>
+
+  <!-- Main Repository Title -->
+  <text x="600" y="125" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="35" font-weight="800" fill="url(#titleGrad)" letter-spacing="-0.5">
+    Awesome Infrastructure Migration Management
+  </text>
+
+  <!-- Accent Divider Line -->
+  <rect x="360" y="148" width="480" height="2" fill="url(#glowLine)" />
+
+  <!-- Subtitle / Mission Statement -->
+  <text x="600" y="180" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#94a3b8">
+    Curated Hub for Server Replication, Database Cutover, Storage Sync &amp; Multi-Cloud Orchestration
+  </text>
+
+  <!-- Dynamic Feature Badges / Capability Highlights Bar -->
+  <g transform="translate(180, 230)">
+    <!-- Pill 1: Block Replication -->
+    <g transform="translate(0, 0)">
+      <rect width="180" height="36" rx="18" fill="#131c2e" stroke="#2563eb" stroke-width="1" />
+      <text x="90" y="23" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">⚡ Block-Level Replication</text>
+    </g>
+
+    <!-- Pill 2: Database Migration -->
+    <g transform="translate(200, 0)">
+      <rect width="190" height="36" rx="18" fill="#131c2e" stroke="#7c3aed" stroke-width="1" />
+      <text x="95" y="23" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#c4b5fd">🔄 Zero-Downtime CDC</text>
+    </g>
+
+    <!-- Pill 3: Object Storage Sync -->
+    <g transform="translate(410, 0)">
+      <rect width="190" height="36" rx="18" fill="#131c2e" stroke="#0891b2" stroke-width="1" />
+      <text x="95" y="23" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#67e8f9">📦 S3 / Object Sync</text>
+    </g>
+
+    <!-- Pill 4: Cloud Onboarding -->
+    <g transform="translate(620, 0)">
+      <rect width="210" height="36" rx="18" fill="#131c2e" stroke="#059669" stroke-width="1" />
+      <text x="105" y="23" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7">☁️ Multi-Cloud Migration Hub</text>
+    </g>
+  </g>
+
+  <!-- Live Status Footnote Bar -->
+  <g transform="translate(420, 310)">
+    <circle cx="10" cy="10" r="4" fill="#22c55e" class="node-pulse" />
+    <text x="24" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748b">Actively Curated Ecosystem • Production-Ready SaaS &amp; Open-Source Tools</text>
+  </g>
+</svg>
